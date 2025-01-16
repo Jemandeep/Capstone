@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-stone-300;
+}
+NavBar {
+  @apply bg-stone-300 text-white;
+}
+header {
+  @apply bg-stone-500 text-white;
+}
+.login-container {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+.login-box {
+  @apply w-full max-w-md bg-white p-8 shadow-md rounded-lg;
+}
+
+.login-title {
+  @apply text-3xl font-bold text-center mb-4;
+}
+
+.login-form {
+  @apply space-y-4;
+}
+
+.login-input-label {
+  @apply block text-gray-700;
+}
+
+.login-input {
+  @apply w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 placeholder-gray-500;
+}
+
+.login-button {
+  @apply w-full py-2 bg-indigo-600 text-white font-bold rounded hover:bg-indigo-700 transition duration-200;
+}
+
+.social-login-button {
+  @apply w-full py-2 flex items-center justify-center font-bold rounded transition duration-200;
+}
+
+.google-button {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+.github-button {
+  @apply bg-gray-800 text-white hover:bg-gray-900;
+}
+
+.error-message {
+  @apply text-red-500 text-xs italic mt-4;
+}
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas:
+      'header'
+      'main-content'
+      'sidebar'
+      'footer';
+    grid-template-columns: 1fr;
+  }
+}
+
+.favorite-property {
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Space inside the box */
+  margin-bottom: 12px; /* Space between boxes */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.favorite-property:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+}
