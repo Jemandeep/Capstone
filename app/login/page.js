@@ -37,6 +37,17 @@ export default function LoginPage() {
     }
   };
 
+  // Handlers for demo logins
+  const fillDemoAgent = () => {
+    setEmail("jeman@agent.ca");
+    setPassword("Demo123");
+  };
+
+  const fillDemoUser = () => {
+    setEmail("jeman@user.ca");
+    setPassword("Demo123");
+  };
+
   return (
     <Layout>
       <div className="login-container min-h-screen flex items-center justify-center bg-gray-100">
@@ -58,7 +69,7 @@ export default function LoginPage() {
                 className="login-input w-full p-2 border rounded"
               />
             </div>
-            
+
             {/* Password Field with Show/Hide */}
             <div className="relative mb-4">
               <label htmlFor="password" className="login-input-label block text-gray-700">
@@ -83,7 +94,7 @@ export default function LoginPage() {
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
-            
+
             <button
               type="submit"
               className="login-button w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -92,9 +103,27 @@ export default function LoginPage() {
             </button>
             {error && <p className="error-message text-red-500 text-sm mt-2">{error}</p>}
           </form>
+
+          {/* Demo Login Buttons */}
+          <div className="demo-buttons mt-6 space-y-4">
+            <button
+              type="button"
+              onClick={fillDemoAgent}
+              className="demo-agent-button w-full p-2 bg-green-500 text-white rounded hover:bg-green-600"
+            >
+              Login as Demo Agent
+            </button>
+            <button
+              type="button"
+              onClick={fillDemoUser}
+              className="demo-user-button w-full p-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+            >
+              Login as Demo User
+            </button>
+          </div>
+
           <div className="mt-4 text-center">
-            <p>Don&apos;t have an account?</p> 
-            {/* ^ Replaced the apostrophe with &apos; */}
+            <p>Don&apos;t have an account?</p>
             <Link href="/signup" className="text-indigo-600 hover:text-indigo-800 transition duration-200">
               Register here
             </Link>
