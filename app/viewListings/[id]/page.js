@@ -112,63 +112,62 @@ const DetailedListing = () => {
           {listing.address}
         </h1>
 
-                  ``<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Column: Carousel */}
-            <div className="w-full h-full rounded-lg overflow-hidden border-2 border-[#144272]">
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                pagination={{ clickable: true }}
-                navigation={true}
-                className="w-full h-full"
-              >
-                {listing.images && listing.images.length > 0 ? (
-                  listing.images.map((image, index) => (
-                    <SwiperSlide key={index} className="flex justify-center items-center">
-  <Image
-    src={image}
-    alt={`Image ${index + 1}`}
-    width={100}
-    height={100}
-    className="object-cover rounded"
-  />
-</SwiperSlide>
-
-                  ))
-                ) : (
-                  <SwiperSlide className="flex justify-center items-center bg-gray-100">
-                    <p className="text-center text-[#144272]">No images available for this listing.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left Column: Carousel */}
+          <div className="w-full h-[500px] rounded-lg overflow-hidden border-2 border-[#144272]">
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+              navigation={true}
+              className="w-full h-full"
+            >
+              {listing.images && listing.images.length > 0 ? (
+                listing.images.map((image, index) => (
+                  <SwiperSlide key={index} className="flex justify-center items-center">
+                    <Image
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded"
+                    />
                   </SwiperSlide>
-                )}
-              </Swiper>
-            </div>
+                ))
+              ) : (
+                <SwiperSlide className="flex justify-center items-center bg-gray-100">
+                  <p className="text-center text-[#144272]">No images available for this listing.</p>
+                </SwiperSlide>
+              )}
+            </Swiper>
+          </div>
 
-            {/* Right Column: Details */}
-            <div className="grid grid-cols-2 gap-6 text-3xl font-bold text-black bg-[#f9f9f9] p-6 rounded-lg shadow">
-              <div>
-                <p className="font-bold text-lg">Bathrooms:</p>
-                <p>{listing.bathroom_count}</p>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Bedrooms:</p>
-                <p>{listing.bed_count}</p>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Price:</p>
-                <p>${parseInt(listing.current_price).toLocaleString()}</p>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Neighborhood:</p>
-                <p>{listing.neighborhood}</p>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Property Type:</p>
-                <p>{listing.property_type}</p>
-              </div>
+          {/* Right Column: Details */}
+          <div className="grid grid-cols-2 gap-6 text-3xl font-bold text-black bg-[#f9f9f9] p-6 rounded-lg shadow">
+            <div>
+              <p className="font-bold text-lg">Bathrooms:</p>
+              <p>{listing.bathroom_count}</p>
             </div>
-          </div>``
+            <div>
+              <p className="font-bold text-lg">Bedrooms:</p>
+              <p>{listing.bed_count}</p>
+            </div>
+            <div>
+              <p className="font-bold text-lg">Price:</p>
+              <p>${parseInt(listing.current_price).toLocaleString()}</p>
+            </div>
+            <div>
+              <p className="font-bold text-lg">Neighborhood:</p>
+              <p>{listing.neighborhood}</p>
+            </div>
+            <div>
+              <p className="font-bold text-lg">Property Type:</p>
+              <p>{listing.property_type}</p>
+            </div>
+          </div>
+        </div>
 
         {/* Summary Section */}
         <div className="bg-[#144272] text-white shadow-lg rounded-lg p-6 mt-10">
